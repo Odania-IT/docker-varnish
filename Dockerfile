@@ -1,11 +1,9 @@
-FROM ubuntu:14.04
+FROM odaniait/docker-base:latest
 MAINTAINER Mike Petersen <mike@odania-it.de>
 
 # Set correct environment variables.
 ENV HOME /root
 
-RUN apt-get update
-RUN apt-get install -y apt-transport-https vim curl
 RUN curl https://repo.varnish-cache.org/GPG-key.txt | apt-key add -
 RUN echo "deb https://repo.varnish-cache.org/ubuntu/ precise varnish-4.0" >> /etc/apt/sources.list.d/varnish-cache.list
 RUN apt-get update
