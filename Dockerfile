@@ -13,11 +13,11 @@ ENV VCL_CONFIG /etc/varnish/default.vcl
 ENV CACHE_SIZE 128m
 ENV LISTEN_PORT 80
 
+COPY varnish_supervisor.conf /etc/supervisor/conf.d/varnish.conf
+
 VOLUME ["/opt/varnish"]
 
 EXPOSE 80
-
-CMD varnishd -F -a 0.0.0.0:$LISTEN_PORT -f $VCL_CONFIG
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
