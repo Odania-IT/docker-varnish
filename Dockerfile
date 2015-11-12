@@ -5,7 +5,7 @@ MAINTAINER Mike Petersen <mike@odania-it.de>
 ENV HOME /root
 
 RUN curl https://repo.varnish-cache.org/GPG-key.txt | apt-key add -
-RUN echo "deb https://repo.varnish-cache.org/ubuntu/ precise varnish-4.0" >> /etc/apt/sources.list.d/varnish-cache.list
+RUN echo "deb https://repo.varnish-cache.org/ubuntu/ trusty varnish-4.1" >> /etc/apt/sources.list.d/varnish-cache.list
 RUN apt-get update
 RUN apt-get install -y varnish
 
