@@ -1,4 +1,4 @@
-FROM odaniait/docker-base:v2
+FROM odaniait/docker-base:latest
 MAINTAINER Mike Petersen <mike@odania-it.de>
 
 # Set correct environment variables.
