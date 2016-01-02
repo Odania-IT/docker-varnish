@@ -1,4 +1,4 @@
-FROM odaniait/docker-base:latest
+FROM odaniait/docker-base:v2
 MAINTAINER Mike Petersen <mike@odania-it.de>
 
 # Set correct environment variables.
@@ -13,7 +13,9 @@ ENV VCL_CONFIG /etc/varnish/default.vcl
 ENV CACHE_SIZE 128m
 ENV LISTEN_PORT 80
 
-COPY varnish_supervisor.conf /etc/supervisor/conf.d/varnish.conf
+# setup varnish service
+RUN mkdir -p /etc/service/varnish
+COPY runit/varnish.sh /etc/service/varnish/run
 
 VOLUME ["/opt/varnish"]
 
