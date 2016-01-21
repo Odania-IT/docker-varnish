@@ -17,6 +17,14 @@ ENV LISTEN_PORT 80
 RUN mkdir -p /etc/service/varnish
 COPY runit/varnish.sh /etc/service/varnish/run
 
+## Create a user
+addgroup --gid 9999 varnish
+adduser --uid 9999 --gid 9999 --disabled-password --gecos "Varnish" varnish
+usermod -L varnish
+mkdir -p /home/varnish/.ssh
+chmod 700 /home/varnish/.ssh
+chown varnish:varnish /home/varnish/.ssh
+
 VOLUME ["/opt/varnish"]
 
 EXPOSE 80
