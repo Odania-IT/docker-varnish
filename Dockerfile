@@ -16,7 +16,8 @@ ENV LISTEN_PORT 80
 
 # setup varnish service
 COPY scripts/varnish.sh /opt/varnish.sh
+COPY default.vcl /etc/varnish/default.vcl
 
 VOLUME ["/opt/varnish"]
-ENTRYPOINT ['/opt/varnish.sh']
+CMD '/opt/varnish.sh'
 EXPOSE 80
