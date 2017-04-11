@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:3.5
 MAINTAINER Mike Petersen <mike@odania-it.de>
 
 # Set correct environment variables.
